@@ -54,7 +54,7 @@ tar xf ./flutter.tar.xz
 rm flutter.tar.xz
 mv ~/Downloads/flutter/ ~/.local/packages/
 export PATH="$PATH:$HOME/.local/packages/flutter/bin"
-sudo apt install clang cmake ninja-build libgtk-3-dev -y
+sudo apt install clang cmake ninja-build libgtk-3-dev libstdc++-12-dev -y
 flutter config --no-analytics
 
 echo "NodeJS 18.15.0 installation"
