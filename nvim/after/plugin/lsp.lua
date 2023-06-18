@@ -3,8 +3,10 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
+    'lua_ls',
     'rust_analyzer',
     'clangd',
+    'pyright',
 })
 
 local cmp = require('cmp')
@@ -21,16 +23,21 @@ lsp.setup_nvim_cmp({
 
 lsp.format_mapping('gq', {
     format_opts = {
-        async = false,
+        async = true,
         timeout_ms = 10000,
     },
     servers = {
         ['lua_ls'] = { 'lua' },
         ['rust_analyzer'] = { 'rust' },
         ['clangd'] = { 'c', 'cpp' },
-        -- if you have a working setup with null-ls
-        -- you can specify filetypes it can format.
-        -- ['null-ls'] = {'javascript', 'typescript'},
+        ['pyright'] = { 'python' },
+    }
+})
+
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup({
+    flags = {
+        exit_timeout = 0,
     }
 })
 
@@ -41,16 +48,23 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>en", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "<leader>ep", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<C-l>", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("i", "<C-l>", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.completion() end, opts)
     -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     -- Automatically format code on save
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+    -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({async = false})]]
+
+    -- Automatically set up rust environment variables
+    vim.cmd("autocmd FileType rust let g:rust_env_vars = system('cat .env')")
 end)
+
+
 
 --[[ vim.diagnostic.config({
     virtual_text = true
