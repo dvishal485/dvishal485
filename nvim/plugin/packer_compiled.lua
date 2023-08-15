@@ -85,6 +85,16 @@ _G.packer_plugins = {
     path = "/home/vishal/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["black-nvim"] = {
+    loaded = true,
+    path = "/home/vishal/.local/share/nvim/site/pack/packer/start/black-nvim",
+    url = "https://github.com/averms/black-nvim"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/vishal/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/vishal/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -100,11 +110,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vishal/.local/share/nvim/site/pack/packer/start/dotenv.nvim",
     url = "https://github.com/ellisonleao/dotenv.nvim"
-  },
-  harpoon = {
-    loaded = true,
-    path = "/home/vishal/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/theprimeagen/harpoon"
   },
   ["hop.nvim"] = {
     config = { "\27LJ\2\2U\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
@@ -218,18 +223,18 @@ time([[Config for hop.nvim]], false)
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: dotenv.nvim
-time([[Config for dotenv.nvim]], true)
-try_loadstring("\27LJ\2\2T\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\2\fverbose\1\19enable_on_load\2\nsetup\vdotenv\frequire\0", "config", "dotenv.nvim")
-time([[Config for dotenv.nvim]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
 try_loadstring("\27LJ\2\2‚\2\0\0\4\0\16\0\0196\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0005\2\4\0005\3\3\0=\3\5\2=\2\a\0015\2\t\0005\3\b\0=\3\n\2=\2\v\0015\2\r\0005\3\f\0=\3\14\2=\2\15\1B\0\2\1K\0\1\0\26override_by_extension\blog\1\0\0\1\0\3\ncolor\f#81e043\ticon\bÔêé\tname\bLog\25override_by_filename\15.gitignore\1\0\0\1\0\3\ncolor\f#f1502f\ticon\bÓúÇ\tname\14Gitignore\roverride\1\0\3\fdefault\2\16color_icons\2\vstrict\2\bzsh\1\0\0\1\0\4\ncolor\f#428850\ticon\bÓûï\16cterm_color\a65\tname\bZsh\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
+-- Config for: dotenv.nvim
+time([[Config for dotenv.nvim]], true)
+try_loadstring("\27LJ\2\2T\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\2\fverbose\1\19enable_on_load\2\nsetup\vdotenv\frequire\0", "config", "dotenv.nvim")
+time([[Config for dotenv.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\2£\1\0\0\3\0\b\0\v6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\1B\0\2\1K\0\1\0\ropleader\1\0\2\nblock\14<leader>b\tline\14<leader>c\ftoggler\1\0\0\1\0\2\nblock\15<leader>bc\tline\15<leader>cc\nsetup\fComment\frequire\0", "config", "Comment.nvim")

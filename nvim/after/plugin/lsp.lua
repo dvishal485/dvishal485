@@ -31,10 +31,21 @@ lsp.format_mapping('gq', {
         ['rust_analyzer'] = { 'rust' },
         ['clangd'] = { 'c', 'cpp' },
         ['pyright'] = { 'python' },
+        ['black'] = { 'python' },
     }
 })
 
 local lspconfig = require('lspconfig')
+lspconfig.clangd.setup({
+    cmd = {
+        'clangd',
+        '--background-index',
+        '--clang-tidy',
+        '--header-insertion=never',
+        '--completion-style=bundled',
+        '--suggest-missing-includes',
+    },
+})
 lspconfig.rust_analyzer.setup({
     flags = {
         exit_timeout = 0,
@@ -51,11 +62,10 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>en", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "<leader>ep", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<C-l>", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("i", "<C-l>", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.completion() end, opts)
-    -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>fq", "<cmd>LspZeroFormat<CR>")
 
     -- Automatically format code on save
     -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format({async = false})]]

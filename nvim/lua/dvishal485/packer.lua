@@ -1,7 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+    vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -16,6 +16,11 @@ return require('packer').startup(function(use)
             })
         end
     }
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
 
     use {
         "windwp/nvim-autopairs",
@@ -29,6 +34,8 @@ return require('packer').startup(function(use)
     use({ 'navarasu/onedark.nvim', as = 'onedark' })
 
     vim.cmd('colorscheme onedark')
+    use 'averms/black-nvim'
+
 
     use {
         'phaazon/hop.nvim',
@@ -133,8 +140,6 @@ return require('packer').startup(function(use)
 
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-
-    use('theprimeagen/harpoon')
 
     use('mbbill/undotree')
     use('hrsh7th/nvim-cmp')

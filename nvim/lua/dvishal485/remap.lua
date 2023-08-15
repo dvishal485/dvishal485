@@ -29,6 +29,7 @@ vim.keymap.set("n", ":Pa", "<cmd>PackerSync<CR>")
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 vim.g.copilot_no_tab_map = true
 -- vim.g.copilot_assume_mapped = true
+vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>w<CR><cmd>bdelete %<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-_>', '<leader>cc', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('i', '<C-_>', '<Esc><leader>cca', { noremap = false, silent = true })
