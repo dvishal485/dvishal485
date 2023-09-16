@@ -28,8 +28,8 @@ vim.keymap.set("n", ":Pa", "<cmd>PackerSync<CR>")
 
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 vim.g.copilot_no_tab_map = true
--- vim.g.copilot_assume_mapped = true
-vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>w<CR><cmd>bdelete %<CR>', { noremap = true, silent = true })
+vim.g.copilot_assume_mapped = true
+vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>BufferLinePickClose<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-_>', '<leader>cc', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('i', '<C-_>', '<Esc><leader>cca', { noremap = false, silent = true })
@@ -40,18 +40,7 @@ vim.keymap.set("n", "<leader>tt", "<cmd>TroubleToggle<CR>",
     { silent = true, noremap = true }
 )
 
--- LSP : defined in after/plugin/lsp.lua
---[[ vim.keymap.set("i", "<C-l>", "<cmd>lua vim.lsp.buf.code_action()<CR>",
-    { silent = true, noremap = true }
-)
-vim.keymap.set("n", "<C-l>", "<cmd>lua vim.lsp.buf.code_action()<CR>",
-    { silent = true, noremap = true }
-) ]]
-
-vim.keymap.set("n", "<C-f>", "<cmd>HopWord<CR>",
-    { silent = true, noremap = true }
-)
-vim.keymap.set("i", "<C-f>", "<Esc><cmd>HopWord<CR>",
+vim.keymap.set("n", "<C-h>", "<cmd>HopWord<CR>",
     { silent = true, noremap = true }
 )
 -- file exp
@@ -68,10 +57,10 @@ vim.keymap.set("n", "<C-p>", "<C-w>+",
     { silent = true, noremap = true }
 )
 
-vim.keymap.set("i", "<Home>", "<Esc>^i", { silent = true, noremap = true })
-vim.keymap.set("n", "<Home>", "^", { silent = true, noremap = true })
-vim.keymap.set("i", "<S-Home>", "<Esc>v<Home>", { silent = true, noremap = true })
-vim.keymap.set("i", "<S-End>", "<Esc>v<End>", { silent = true, noremap = true })
+-- vim.keymap.set("i", "<Home>", "<Esc>^i", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<Home>", "^", { silent = true, noremap = true })
+-- vim.keymap.set("i", "<S-Home>", "<Esc>v<Home>", { silent = true, noremap = true })
+-- vim.keymap.set("i", "<S-End>", "<Esc>v<End>", { silent = true, noremap = true })
 
 
 vim.keymap.set("v", "<M-Up>", ":m '<-2<CR>gv=gv")

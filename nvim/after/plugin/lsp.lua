@@ -17,6 +17,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<Tab>'] = nil,
     ['<S-Tab>'] = nil,
 })
+
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
@@ -63,7 +64,10 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>ep", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<C-l>", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.completion() end, opts)
+
+    -- this is cursed, i thought C-i is Ctrl+i but it is actually equivalent to Tab
+    -- vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.completion() end, opts)
+
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
     vim.keymap.set("n", "<leader>fq", "<cmd>LspZeroFormat<CR>")
 

@@ -20,3 +20,5 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 12
 vim.g.mapleader = " "
+
+vim.opt.ai = true
