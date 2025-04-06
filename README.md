@@ -4,4 +4,4 @@
 
 🍀 Currently developing skills in Rust, Python and C++
 
-📫 Contact [email](mailto:26341736+dvishal485@users.noreply.github.com)
+📫 Contact [email](mailto:lent-lather-excuse@duck.com)
